@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 
 
 class App extends React.Component {
@@ -37,7 +38,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='App'>
         <h1>My Wish List</h1>
 
         <h3>Available Items: {this.state.availableList.length}
