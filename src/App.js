@@ -10,15 +10,18 @@ class App extends React.Component {
 
   checkinput = (event) => {
     if (event === '') {
+      console.log('Cannot be empty')
       return false
     } else {
       for (let i = 0; i < this.state.availableList.length; i++) {
         if (event === this.state.availableList[i]) {
+          console.log('Already in available list')
           return false
         }
       }
       for (let i = 0; i < this.state.wishList.length; i++) {
         if (event === this.state.wishList[i]) {
+          console.log('Already in wish list')
           return false
         }
       }
@@ -32,7 +35,7 @@ class App extends React.Component {
       <div>
         <h1>My Wish List</h1>
 
-        <h3>Available Items  {this.state.availableList.length}
+        <h3>Available Items: {this.state.availableList.length}
         </h3>
         <input placeholder='Type here' type="text" value={this.state.temp} onChange={event => (this.setState({ temp: event.target.value }))} />
         <button onClick={() => {
@@ -54,7 +57,7 @@ class App extends React.Component {
             )
           })}
         </ul>
-        <h3>My Wish List {this.state.wishList.length}</h3>
+        <h3>My Wish List: {this.state.wishList.length}</h3>
         <ul>
           {this.state.wishList.map(item => {
             return (
