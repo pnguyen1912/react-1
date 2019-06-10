@@ -29,6 +29,11 @@ class App extends React.Component {
     }
   }
 
+  addToAvailable = () => {
+    (this.checkinput(this.state.temp)) ?
+      (this.setState({ availableList: [...this.state.availableList, this.state.temp] }, this.setState({ temp: '' }))) : (console.log('error'))
+  }
+
 
   render() {
     return (
@@ -37,11 +42,8 @@ class App extends React.Component {
 
         <h3>Available Items: {this.state.availableList.length}
         </h3>
-        <input placeholder='Type here' type="text" value={this.state.temp} onChange={event => (this.setState({ temp: event.target.value }))} />
-        <button onClick={() => {
-          (this.checkinput(this.state.temp)) ?
-            (this.setState({ availableList: [...this.state.availableList, this.state.temp] }, this.setState({ temp: '' }))) : (console.log('error'))
-        }}>Add to Available</button>
+        <input placeholder='Type here' type="text" value={this.state.temp} onKeyDown={(e) => { if (e.key === 'Enter') { this.addToAvailable() } }} onChange={event => (this.setState({ temp: event.target.value }))} />
+        <button onClick={this.addToAvailable}> Add to Available</button>
         <ul>
           {this.state.availableList.map(item => {
             return (
