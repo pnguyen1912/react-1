@@ -32,7 +32,7 @@ class App extends React.Component {
 
   addToAvailable = () => {
     (this.checkinput(this.state.temp)) ?
-      (this.setState({ availableList: [...this.state.availableList, this.state.temp] }, this.setState({ temp: '' }))) : (console.log('error'))
+      (this.setState({ availableList: [...this.state.availableList, this.state.temp] ,temp: ''})) : (console.log('error'))
   }
 
 
